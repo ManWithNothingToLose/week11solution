@@ -19,7 +19,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
     }
 
     public void updateList(List<Player> newList) {
-        this.playerList = newList;
+        playerList = newList;
         notifyDataSetChanged();
     }
 
@@ -35,6 +35,10 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
         Player player = playerList.get(position);
         holder.name.setText(player.getName());
         holder.position.setText(player.getPosition());
+        holder.age.setText(String.valueOf(player.getAge()));
+        holder.country.setText(player.getCountry());
+        holder.team.setText(player.getTeam());
+        holder.number.setText(String.valueOf(player.getNumber()));
     }
 
     @Override
@@ -43,12 +47,17 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
     }
 
     static class PlayerViewHolder extends RecyclerView.ViewHolder {
-        TextView name, position;
+        TextView name, age, country, position, team, number;
 
         public PlayerViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.playerName);
             position = itemView.findViewById(R.id.playerPosition);
+            age = itemView.findViewById(R.id.playerAge);
+            country = itemView.findViewById(R.id.playerCountry);
+            team = itemView.findViewById(R.id.playerTeam);
+            number = itemView.findViewById(R.id.playerNumber);
+
         }
     }
 }

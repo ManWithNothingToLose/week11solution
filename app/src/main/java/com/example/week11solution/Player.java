@@ -43,7 +43,7 @@ public class Player implements SoccerEntity {
         return position;
     }
 
-    public String getteam() {
+    public String getTeam() {
         return team;
     }
 

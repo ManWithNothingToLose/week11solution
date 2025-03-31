@@ -34,7 +34,11 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.MatchViewHol
     @Override
     public void onBindViewHolder(@NonNull MatchViewHolder holder, int position) {
         Match match = matchList.get(position);
-        holder.title.setText(match.getName()); // example: "Team A vs Team B"
+        holder.home.setText(match.getHomeTeam());
+        holder.away.setText(match.getAwayTeam());
+        holder.score.setText(match.getScore());
+        holder.league.setText(match.getLeague());
+        holder.stadium.setText(match.getStadium());
         holder.date.setText(match.getDate());
     }
 
@@ -44,13 +48,16 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.MatchViewHol
     }
 
     static class MatchViewHolder extends RecyclerView.ViewHolder {
-        TextView title, date;
+        TextView home, away, score, league, stadium, date;
 
         public MatchViewHolder(@NonNull View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.matchTitle);
+            home = itemView.findViewById(R.id.matchHome);
+            away = itemView.findViewById(R.id.matchAway);
+            score = itemView.findViewById(R.id.matchScore);
+            league = itemView.findViewById(R.id.matchLeague);
+            stadium = itemView.findViewById(R.id.matchStadium);
             date = itemView.findViewById(R.id.matchDate);
         }
     }
-
 }
